@@ -7,10 +7,18 @@
 	</style>
 </head>
 <body>
-	<header class="jumbotron">
+	<header class="jumbotron ">
+	<div class="container">
+		<div class="col-md-11">
 		<center>
 			<p class="text-danger">Share Interesting Blogs to the World !</p>
 		</center>
+		</div>
+		<div class="col-md-1">
+		<a href="/"><button type="button" class="btn btn-danger  btn-sm" data-toggle="modal" data-target="#login">Login</button></a>
+		</div>
+	</div>
+		
 	</header>
 	<div class="container">
 		<div class="row">
@@ -26,7 +34,7 @@
 
 		</aside>
 		<section class="col-md-8 col-md-offset-1">
-			<div class="row">
+			<div class="row links">
 			{% block cat_title %}{% endblock %}
 				{% block content %}
 				{% for d in data %}
@@ -42,6 +50,45 @@
 		</section>
 		</div>
 	</div>
+	<div id="login" class="modal fade">
+	  <div class="modal-dialog">
+   		<div class="modal-content">
+		<ul class="nav nav-tabs">
+		  <li><a href="#login-tab" data-toggle="tab">Login</a></li>
+		  <li><a href="#signup-tab" data-toggle="tab">Signup</a></li>
+		</ul>
+		<div class="modal-body">
+		<div class="row">
+                <div class="tab-content">
+              		<div class="tab-pane fade in active" id="login-tab">
+				<center>
+	      			  	<form class="form" action="/login" method="post">
+	      			  		 <input type="text" id="inputEmail" name="username" placeholder="Username" autofocus></br></br>
+	      			  		 <input type="password" id="inputPassword" name="password" placeholder="Password"></br></br>
+	      			  	         <button type="submit" name="submit" class="btn btn-sm btn-primary">Login</button>
+	      			  	</form>
+					<a href="/forgot">Forgot password ?</a>
+				</center>
+	      		</div>
+              		<div class="tab-pane fade in" id="signup-tab">
+				<center>
+	      			  	<form class="form" action="/signup" method="post">
+	      			  		 <input type="text" id="inputEmail" name="email" placeholder="Email" autofocus></br></br>
+	      			  		 <input type="text" id="original_name" name="email" placeholder="Full name" autofocus></br></br>
+	      			  		 <input type="text" id="username" name="username" placeholder="Username" autofocus></br></br>
+	      			  		 <input type="password" id="inputPassword" name="password" placeholder="Password"></br></br>
+	      			  	         <button type="submit" name="submit" class="btn btn-sm btn-primary">Sign Up</button>
+	      			  	</form>
+				</center>
+	      		</div>
+	    	</div>
+	    	</div>
+	    	</div>
+	</div><!-- /.modal -->
+	</div><!-- /.modal -->
+	</div><!-- /.modal -->
+	<script src="/javascripts/jquery.js" type="text/javascript"></script>
+	<script src="/javascripts/jquery.js" type="text/javascript"></script>
 	<script src="/javascripts/jquery.js" type="text/javascript"></script>
 	<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
 </body>
