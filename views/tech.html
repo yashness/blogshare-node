@@ -1,0 +1,9 @@
+{% extends "views/layout.html" %}
+{%  block link %}
+	{% if d.category=='tech' %}
+	<li>
+		<p class="title"><a target="_blank" href="{{d.url}}">{{d.title}}</a></p><p class="url">({{d.url}})</p></br>
+		<p class="additional">{{d.upvotes}} Upvotes | {{d.user}}| {{d.timestamp}}</h5>
+	</li>
+	{% endif %}
+{%  endblock %}

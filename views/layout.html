@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/styles.css" rel="stylesheet" type="text/css">
+	<style>
+	</style>
+</head>
+<body>
+	<header class="jumbotron">
+		<center>
+			<p class="text-danger">Share Interesting Blogs to the World !</p>
+		</center>
+	</header>
+	<div class="container">
+		<div class="row">
+		<aside class="col-md-2">
+			<a href="/"><button type="button" class="btn btn-info  btn-sm btn-block">All</button></a>
+			<a href="tech"><button type="button" class="btn  btn-sm btn-block">Technology</button>
+			<a href="world"><button type="button" class="btn  btn-sm btn-block">World News</button>	
+			<a href="coding"><button type="button" class="btn  btn-sm btn-block">Coding/Programming</button>	
+			<a href="inspire"><button type="button" class="btn  btn-sm btn-block">Inspirational</button>	
+			<a href="show"><button type="button" class="btn  btn-sm btn-block">Show: world</button>	
+			<a href="ask"><button type="button" class="btn  btn-sm btn-block">Ask : world</button>	
+			<a href="startups"><button type="button" class="btn  btn-sm btn-block">Startups</button>	
+
+		</aside>
+		<section class="col-md-8 col-md-offset-1">
+			<div class="row">
+			{% block cat_title %}{% endblock %}
+				{% block content %}
+				{% for d in data %}
+				{%  block link %}
+				<li>
+					<p class="title"><a target="_blank" href="{{d.url}}">{{d.title}}</a></p><p class="url">{{d.url | truncate(30)}}</p></br>
+					<p class="additional">{{d.upvotes}} Upvotes | {{d.user}}| {{d.timestamp}}</h5>
+				</li>
+				{%  endblock %}
+				{% endfor %}
+				{% endblock %}
+			</div>
+		</section>
+		</div>
+	</div>
+	<script src="/javascripts/jquery.js" type="text/javascript"></script>
+	<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+</body>
+</html>
